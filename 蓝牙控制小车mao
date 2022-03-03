@@ -1,0 +1,145 @@
+#include "reg52.h"    //此文件中定义了单片机的一些特殊功能寄存器
+#include "intrins.h"
+typedef unsigned int u16;	  //对数据类型进行声明定义
+typedef unsigned char u8;
+	
+sbit STA=P3^2;  //蓝牙连接信号
+sbit dianji1g=P2^0;
+sbit dianji1d=P2^1;
+sbit dianji2g=P2^2;
+sbit dianji2d=P2^3;
+
+//#define led P2		//使用的端口
+
+void delay(u16 i);	 //延时函数声明
+void zhengzhuan_1();  //电机1正转
+void tingzhi_1();	//电机1停止
+void fanzhuan_1();		//电机1反转
+void zhengzhuan_2();  //电机2正转
+void tingzhi_2();	//电机2停止
+void fanzhuan_2();		//电机2反转
+
+#define USART_MAX_RECV_LEN	40
+u8 USART_RX_BUF[USART_MAX_RECV_LEN];
+u16 USART_RX_STA=0; 
+
+void delay(u16 i)
+{
+	while(i--);
+}
+
+void UsartInit()
+{
+	SCON=0X50;			//设置为工作方式1
+	TMOD=0X20;			//设置计数器工作方式2
+	PCON=0X80;			//波特率加倍
+	TH1=0XFa;			//计数器初始值设置，注意波特率是9600的
+	TL1=0XFa;
+	ES=1;						//打开接收中断
+	EA=1;						//打开总中断
+	TR1=1;					//打开计数器
+}
+
+void USART_SendData(u8 datbuf[])
+{
+	u8 i=0;
+	for(i=0;i<1;i++)
+	{
+		SBUF=datbuf[i];//将接收到的数据放入到发送寄存器
+		while(!TI);//等待发送数据完成
+		TI=0;//清除发送完成标志位	
+	}
+}
+
+void main()
+{
+	u8 i=0,j=0;
+	STA=0;
+	P0=0x00;  //屏蔽数码管
+	UsartInit();  //串口初始化
+	while(1)
+	{	
+		if(USART_RX_BUF[0]==0x12)	 //电机1正转
+		{
+		    zhengzhuan_1();
+			USART_SendData(USART_RX_BUF);
+		}
+		else if(USART_RX_BUF[0]==0x11)		//电机1反转
+		{
+		    fanzhuan_1();
+			USART_SendData(USART_RX_BUF);
+		}
+		else if(USART_RX_BUF[0]==0x10)		//电机1停止
+		{
+			tingzhi_1();
+			USART_SendData(USART_RX_BUF);
+		}
+	    if(USART_RX_BUF[0]==0x22)			//电机2正转
+		{
+			zhengzhuan_2();
+			USART_SendData(USART_RX_BUF);
+		}
+		else if(USART_RX_BUF[0]==0x21)	   //电机2反转
+		{
+			fanzhuan_2();
+			USART_SendData(USART_RX_BUF);
+		}
+	    else if(USART_RX_BUF[0]==0x20)	   //电机2停止
+		{
+			tingzhi_2();
+			USART_SendData(USART_RX_BUF);
+		}
+		
+	}		
+}
+
+void Usart() interrupt 4
+{
+	u8 res;
+	res=SBUF;
+	USART_RX_BUF[0]=res;
+	RI = 0;//清除接收中断标志位	
+							 
+}
+
+
+void diwei2gaowei(){	 //启动第二个
+
+
+}
+void zhengzhuan_1()  //电机1正转
+{  		dianji1g=1;
+		dianji1d=0;
+		delay(5000);
+}
+void tingzhi_1()   //电机1停止
+{ 
+	   	dianji1g=1;
+		dianji1d=1;
+		delay(5000);
+}	
+void fanzhuan_1()		//电机1反转
+{
+        dianji1g=0;
+		dianji1d=1;
+		delay(5000);
+}
+void zhengzhuan_2()  //电机2正转
+{   dianji2g=1;
+    dianji2d=0;
+	delay(5000);
+}
+void tingzhi_2()	//电机2停止
+{	dianji2g=1;
+    dianji2d=1;
+	delay(5000);
+}
+void fanzhuan_2()		//电机2反转
+{	 dianji2g=0;
+     dianji2d=1;
+	 delay(5000);
+}
+
+
+
+

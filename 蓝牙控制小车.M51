@@ -1,0 +1,386 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/29/2021  12:18:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE 蓝牙控制小车mao.obj TO 蓝牙控制小车 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  蓝牙控制小车mao.obj (____________MAO)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  蓝牙控制小车 (____________MAO)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     002AH     UNIT         ?DT?____________MAO
+            DATA    0032H     0009H     UNIT         _DATA_GROUP_
+            IDATA   003BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0016H     UNIT         ?PR?USARTINIT?____________MAO
+            CODE    0019H     0006H     UNIT         ?PR?XIAOCHE_QIANJIN?____________MAO
+                    001FH     0004H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+            CODE    0026H     0111H     UNIT         ?PR?MAIN?____________MAO
+            CODE    0137H     008CH     UNIT         ?C_C51STARTUP
+            CODE    01C3H     002DH     UNIT         ?C?LIB_CODE
+            CODE    01F0H     002BH     UNIT         ?PR?_USART_SENDDATA?____________MAO
+            CODE    021BH     0012H     UNIT         ?PR?USART?____________MAO
+            CODE    022DH     000EH     UNIT         ?CO?____________MAO
+            CODE    023BH     000BH     UNIT         ?PR?_DELAY?____________MAO
+            CODE    0246H     000BH     UNIT         ?PR?ZHENGZHUAN_1?____________MAO
+            CODE    0251H     000BH     UNIT         ?PR?TINGZHI_1?____________MAO
+            CODE    025CH     000BH     UNIT         ?PR?FANZHUAN_1?____________MAO
+            CODE    0267H     000BH     UNIT         ?PR?ZHENGZHUAN_2?____________MAO
+            CODE    0272H     000BH     UNIT         ?PR?TINGZHI_2?____________MAO
+            CODE    027DH     000BH     UNIT         ?PR?FANZHUAN_2?____________MAO
+            CODE    0288H     0006H     UNIT         ?PR?XIAOCHE_HOUTUI?____________MAO
+            CODE    028EH     0006H     UNIT         ?PR?XIAOCHE_ZUOZHUAN?____________MAO
+            CODE    0294H     0006H     UNIT         ?PR?XIOACHE_YOUZHUAN?____________MAO
+            CODE    029AH     0006H     UNIT         ?PR?XIAOCHE_TINGZHI?____________MAO
+            CODE    02A0H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   蓝牙控制小车 (____________MAO)
+
+
+SEGMENT                                        DATA_GROUP 
+  +--> CALLED SEGMENT                        START    LENGTH
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 2
+
+
+------------------------------------------------------------
+?C_C51STARTUP                                -----    -----
+  +--> ?PR?MAIN?____________MAO
+  +--> ?C_INITSEG
+
+?PR?MAIN?____________MAO                     0032H    0006H
+  +--> ?PR?_DELAY?____________MAO
+  +--> ?PR?USARTINIT?____________MAO
+  +--> ?PR?XIAOCHE_QIANJIN?____________MAO
+  +--> ?CO?____________MAO
+  +--> ?PR?_USART_SENDDATA?____________MAO
+  +--> ?PR?XIAOCHE_HOUTUI?____________MAO
+  +--> ?PR?XIAOCHE_ZUOZHUAN?____________MAO
+  +--> ?PR?XIOACHE_YOUZHUAN?____________MAO
+  +--> ?PR?XIAOCHE_TINGZHI?____________MAO
+
+?PR?XIAOCHE_QIANJIN?____________MAO          -----    -----
+  +--> ?PR?ZHENGZHUAN_1?____________MAO
+  +--> ?PR?ZHENGZHUAN_2?____________MAO
+
+?PR?ZHENGZHUAN_1?____________MAO             -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+?PR?ZHENGZHUAN_2?____________MAO             -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+?PR?_USART_SENDDATA?____________MAO          0038H    0003H
+
+?PR?XIAOCHE_HOUTUI?____________MAO           -----    -----
+  +--> ?PR?FANZHUAN_1?____________MAO
+  +--> ?PR?FANZHUAN_2?____________MAO
+
+?PR?FANZHUAN_1?____________MAO               -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+?PR?FANZHUAN_2?____________MAO               -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+?PR?XIAOCHE_ZUOZHUAN?____________MAO         -----    -----
+  +--> ?PR?ZHENGZHUAN_1?____________MAO
+  +--> ?PR?FANZHUAN_2?____________MAO
+
+?PR?XIOACHE_YOUZHUAN?____________MAO         -----    -----
+  +--> ?PR?ZHENGZHUAN_2?____________MAO
+  +--> ?PR?FANZHUAN_1?____________MAO
+
+?PR?XIAOCHE_TINGZHI?____________MAO          -----    -----
+  +--> ?PR?TINGZHI_1?____________MAO
+  +--> ?PR?TINGZHI_2?____________MAO
+
+?PR?TINGZHI_1?____________MAO                -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+?PR?TINGZHI_2?____________MAO                -----    -----
+  +--> ?PR?_DELAY?____________MAO
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 3
+
+
+
+SYMBOL TABLE OF MODULE:  蓝牙控制小车 (____________MAO)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ____________MAO
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  B:0080H.2       PUBLIC        dianji1d
+  B:0080H.4       PUBLIC        dianji2d
+  B:0080H.1       PUBLIC        dianji1g
+  B:0080H.3       PUBLIC        dianji2g
+  D:00A8H         PUBLIC        IE
+  C:021BH         PUBLIC        Usart
+  C:023BH         PUBLIC        _delay
+  C:0251H         PUBLIC        tingzhi_1
+  C:0272H         PUBLIC        tingzhi_2
+  B:00A8H.4       PUBLIC        ES
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  B:00A0H.7       PUBLIC        deng
+  C:0026H         PUBLIC        main
+  C:0003H         PUBLIC        UsartInit
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  C:0019H         PUBLIC        xiaoche_qianjin
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:029AH         PUBLIC        xiaoche_tingzhi
+  D:008DH         PUBLIC        TH1
+  C:0294H         PUBLIC        xioache_youzhuan
+  C:028EH         PUBLIC        xiaoche_zuozhuan
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:0008H         PUBLIC        USART_RX_BUF
+  C:0246H         PUBLIC        zhengzhuan_1
+  C:0267H         PUBLIC        zhengzhuan_2
+  D:0030H         PUBLIC        USART_RX_STA
+  D:00C8H         PUBLIC        T2CON
+  C:0288H         PUBLIC        xiaoche_houtui
+  B:0080H.0       PUBLIC        dianji1sudu
+  B:00B0H.2       PUBLIC        STA
+  B:0080H.5       PUBLIC        dianji2sudu
+  C:025CH         PUBLIC        fanzhuan_1
+  C:027DH         PUBLIC        fanzhuan_2
+  C:01F0H         PUBLIC        _USART_SendData
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ii
+  C:023BH         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 4
+
+
+  C:023BH         LINE#         35
+  C:023BH         LINE#         36
+  C:0245H         LINE#         37
+  -------         ENDPROC       _DELAY
+  -------         PROC          USARTINIT
+  C:0003H         LINE#         39
+  C:0003H         LINE#         40
+  C:0003H         LINE#         41
+  C:0006H         LINE#         42
+  C:0009H         LINE#         43
+  C:000CH         LINE#         44
+  C:000FH         LINE#         45
+  C:0012H         LINE#         46
+  C:0014H         LINE#         47
+  C:0016H         LINE#         48
+  C:0018H         LINE#         49
+  -------         ENDPROC       USARTINIT
+  -------         PROC          _USART_SENDDATA
+  D:0038H         SYMBOL        datbuf
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:01F0H         LINE#         51
+  C:01F6H         LINE#         52
+  C:01F6H         LINE#         53
+  C:01F8H         LINE#         54
+  C:0202H         LINE#         55
+  C:0202H         LINE#         56
+  C:0212H         LINE#         57
+  C:0215H         LINE#         58
+  C:0217H         LINE#         59
+  C:021AH         LINE#         60
+  -------         ENDPROC       _USART_SENDDATA
+  -------         PROC          MAIN
+  -------         DO            
+  D:0032H         SYMBOL        kk
+  D:0034H         SYMBOL        i
+  D:0035H         SYMBOL        j
+  D:0036H         SYMBOL        sudu
+  -------         ENDDO         
+  C:0026H         LINE#         62
+  C:0026H         LINE#         63
+  C:002CH         LINE#         64
+  C:0031H         LINE#         65
+  C:0035H         LINE#         66
+  C:0037H         LINE#         67
+  C:003DH         LINE#         68
+  C:0040H         LINE#         69
+  C:0043H         LINE#         70
+  C:0045H         LINE#         71
+  C:0047H         LINE#         72
+  C:0047H         LINE#         73
+  C:0047H         LINE#         81
+  C:004DH         LINE#         82
+  C:004DH         LINE#         83
+  C:0050H         LINE#         84
+  C:0056H         LINE#         85
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 5
+
+
+  C:005FH         LINE#         86
+  C:005FH         LINE#         87
+  C:0064H         LINE#         88
+  C:0067H         LINE#         89
+  C:006DH         LINE#         90
+  C:006DH         LINE#         91
+  C:0070H         LINE#         92
+  C:0078H         LINE#         93
+  C:0078H         LINE#         94
+  C:0081H         LINE#         95
+  C:0081H         LINE#         96
+  C:0087H         LINE#         97
+  C:0089H         LINE#         98
+  C:008FH         LINE#         99
+  C:008FH         LINE#         101
+  C:0092H         LINE#         102
+  C:009AH         LINE#         103
+  C:00A3H         LINE#         104
+  C:00A9H         LINE#         105
+  C:00ABH         LINE#         106
+  C:00B1H         LINE#         107
+  C:00B1H         LINE#         108
+  C:00B4H         LINE#         109
+  C:00BCH         LINE#         110
+  C:00C5H         LINE#         111
+  C:00CBH         LINE#         112
+  C:00CDH         LINE#         113
+  C:00D3H         LINE#         114
+  C:00D3H         LINE#         115
+  C:00D6H         LINE#         116
+  C:00DEH         LINE#         117
+  C:00E7H         LINE#         118
+  C:00EDH         LINE#         119
+  C:00EDH         LINE#         122
+  C:00F6H         LINE#         123
+  C:00F6H         LINE#         124
+  C:00F8H         LINE#         125
+  C:0100H         LINE#         126
+  C:0109H         LINE#         127
+  C:010FH         LINE#         128
+  C:0112H         LINE#         129
+  C:011BH         LINE#         130
+  C:011BH         LINE#         131
+  C:011DH         LINE#         132
+  C:0125H         LINE#         133
+  C:012EH         LINE#         134
+  C:012EH         LINE#         135
+  C:0134H         LINE#         136
+  C:0134H         LINE#         155
+  -------         ENDPROC       MAIN
+  -------         PROC          USART
+  -------         DO            
+  D:0007H         SYMBOL        res
+  -------         ENDDO         
+  C:021BH         LINE#         158
+  C:0222H         LINE#         161
+  C:0224H         LINE#         162
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 6
+
+
+  C:0226H         LINE#         163
+  C:0228H         LINE#         164
+  -------         ENDPROC       USART
+  -------         PROC          ZHENGZHUAN_1
+  C:0246H         LINE#         171
+  C:0246H         LINE#         172
+  C:0248H         LINE#         173
+  C:024AH         LINE#         174
+  -------         ENDPROC       ZHENGZHUAN_1
+  -------         PROC          TINGZHI_1
+  C:0251H         LINE#         176
+  C:0251H         LINE#         177
+  C:0251H         LINE#         178
+  C:0253H         LINE#         179
+  C:0255H         LINE#         180
+  -------         ENDPROC       TINGZHI_1
+  -------         PROC          FANZHUAN_1
+  C:025CH         LINE#         182
+  C:025CH         LINE#         183
+  C:025CH         LINE#         184
+  C:025EH         LINE#         185
+  C:0260H         LINE#         186
+  -------         ENDPROC       FANZHUAN_1
+  -------         PROC          ZHENGZHUAN_2
+  C:0267H         LINE#         188
+  C:0267H         LINE#         189
+  C:0269H         LINE#         190
+  C:026BH         LINE#         191
+  -------         ENDPROC       ZHENGZHUAN_2
+  -------         PROC          TINGZHI_2
+  C:0272H         LINE#         193
+  C:0272H         LINE#         194
+  C:0274H         LINE#         195
+  C:0276H         LINE#         196
+  -------         ENDPROC       TINGZHI_2
+  -------         PROC          FANZHUAN_2
+  C:027DH         LINE#         198
+  C:027DH         LINE#         199
+  C:027FH         LINE#         200
+  C:0281H         LINE#         201
+  -------         ENDPROC       FANZHUAN_2
+  -------         PROC          XIAOCHE_QIANJIN
+  C:0019H         LINE#         204
+  C:0019H         LINE#         205
+  C:0019H         LINE#         206
+  C:001CH         LINE#         207
+  -------         ENDPROC       XIAOCHE_QIANJIN
+  -------         PROC          XIAOCHE_HOUTUI
+  C:0288H         LINE#         209
+  C:0288H         LINE#         210
+  C:0288H         LINE#         211
+  C:028BH         LINE#         212
+  -------         ENDPROC       XIAOCHE_HOUTUI
+  -------         PROC          XIAOCHE_ZUOZHUAN
+  C:028EH         LINE#         215
+  C:028EH         LINE#         216
+  C:028EH         LINE#         217
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/29/2021  12:18:10  PAGE 7
+
+
+  C:0291H         LINE#         218
+  -------         ENDPROC       XIAOCHE_ZUOZHUAN
+  -------         PROC          XIOACHE_YOUZHUAN
+  C:0294H         LINE#         220
+  C:0294H         LINE#         221
+  C:0294H         LINE#         222
+  C:0297H         LINE#         223
+  -------         ENDPROC       XIOACHE_YOUZHUAN
+  -------         PROC          XIAOCHE_TINGZHI
+  C:029AH         LINE#         225
+  C:029AH         LINE#         226
+  C:029AH         LINE#         227
+  C:029DH         LINE#         228
+  -------         ENDPROC       XIAOCHE_TINGZHI
+  -------         ENDMOD        ____________MAO
+
+  -------         MODULE        ?C?CLDOPTR
+  C:01C3H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+Program Size: data=60.0 xdata=0 code=673
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
